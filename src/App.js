@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { fetchQuote } from './ApiCalls'
 import './App.css';
 
 export class App extends Component {
@@ -10,8 +11,12 @@ export class App extends Component {
   }
 
   componentDidMount () {
+    this.getQuote()
+  }
+
+  getQuote = async () => {
     await fetchQuote()
-      .then(quote => this.setState({quote: quote}))
+      .then(quote => this.setState({quote: quote.quote}))
       .catch(error => error.message)
   }
 
