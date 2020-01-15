@@ -8,12 +8,14 @@ export class App extends Component {
     super()
     this.state = {
       quote: '',
-      today: ''
+      today: '',
+      image: ''
     }
   }
 
   componentDidMount () {
     this.getQuote()
+    this.getImage()
   }
 
   getQuote = async () => {
@@ -29,6 +31,12 @@ export class App extends Component {
     let today = new Date()
     let format = today.toLocaleDateString("en-US", options)
     this.setState({today: format})
+   }
+
+   getImage = async () => {
+     await fetchImage()
+      .then(quote => this.setState({image: image}))
+      .catch(error => error.message)
    }
 
   render () {
