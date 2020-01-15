@@ -9,6 +9,12 @@ export class App extends Component {
     }
   }
 
+  componentDidMount () {
+    await fetchQuote()
+      .then(quote => this.setState({quote: quote}))
+      .catch(error => error.message)
+  }
+
   render () {
     return (
       <div className='App'>
