@@ -4,7 +4,7 @@ export class QuoteCard extends Component {
 
   newQuote = async (e) => {
     e.preventDefault()
-    console.log('hazah')
+    this.props.getQuote()
   }
 
   render() {
