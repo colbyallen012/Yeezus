@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import pablo from './Utils/pablo.jpg'
+import pablo from './Utils/pablo.png';
+import './QuoteCard.css';
+
 export class QuoteCard extends Component {
+
 
   newQuote = async (e) => {
     e.preventDefault()
@@ -10,11 +13,13 @@ export class QuoteCard extends Component {
   render() {
     return (
       <div className={QuoteCard}>
-        <h2>Yeezy Card</h2>
-        <img src={pablo}/>
-        <p>{this.props.quote}</p>
+        <img className='pablo' src={pablo} alt='kanye-west'/>
+        <h2>Ye</h2>
+        <h3>@kanyewest</h3>
+        <h4>{this.props.today}</h4>
+        <p className='quote'>{this.props.quote}</p>
         <form onSubmit={this.newQuote}>
-          <button>New Quote</button>
+          <button className='quote-button'>New Quote</button>
         </form>
       </div>
     )
