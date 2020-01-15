@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchQuote } from './ApiCalls'
+import { fetchQuote, fetchImage } from './ApiCalls'
 import QuoteCard from './QuoteCard'
 import './App.css';
 
@@ -35,8 +35,10 @@ export class App extends Component {
 
    getImage = async () => {
      await fetchImage()
-      .then(quote => this.setState({image: image}))
+      .then(image => this.setState({image: image}))
       .catch(error => error.message)
+
+      // console.log(this.state)
    }
 
   render () {

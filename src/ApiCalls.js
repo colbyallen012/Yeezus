@@ -4,3 +4,10 @@ export const fetchQuote = () => {
     .then(res => res)
     .catch(error => error.message)
 }
+
+export const fetchImage = () => {
+  return fetch('')
+    .then(res => res.json())
+    .then(res => res)
+    .catch(error => error.message)
+}
