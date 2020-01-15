@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import pablo from './Utils/pablo.png';
+import './QuoteCard.css';
 
 export class QuoteCard extends Component {
 
+
   newQuote = async (e) => {
     e.preventDefault()
-    console.log('hazah')
+    this.props.getQuote()
   }
 
   render() {
     return (
-      <div className={QuoteCard}>
-        <h2>Yeezy Card</h2>
-        <p>{this.props.quote}</p>
+      <div className='QuoteCard'>
+        <h2>{this.props.today}</h2> 
+        <p className='quote'>{this.props.quote}</p>
+        <img className='pablo' src={pablo} alt='kanye-west'/>
         <form onSubmit={this.newQuote}>
-          <button>New Quote</button>
+          <button className='quote-button'>New Quote</button>
         </form>
       </div>
     )
