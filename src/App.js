@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchQuote } from './ApiCalls'
+import QuoteCard from './QuoteCard'
 import './App.css';
 
 export class App extends Component {
@@ -23,7 +24,8 @@ export class App extends Component {
   render () {
     return (
       <div className='App'>
-        <h1>Yeezy</h1>
+        <h1>Yeezy Says</h1>
+        <QuoteCard quote={this.state.quote} getQuote={this.getQuote} />
       </div>
     )
   }
