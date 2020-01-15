@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { fetchQuote } from './ApiCalls'
+import QuoteCard from './QuoteCard'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      quote: ''
+    }
+  }
+
+  componentDidMount () {
+    this.getQuote()
+  }
+
+  getQuote = async () => {
+    await fetchQuote()
+      .then(quote => this.setState({quote: quote.quote}))
+      .catch(error => error.message)
+  }
+
+  render () {
+    return (
+      <div className='App'>
+        <h1>Yeezy Says</h1>
+        <QuoteCard quote={this.state.quote} getQuote={this.getQuote} />
+      </div>
+    )
+  }
 }
 
 export default App;
+
