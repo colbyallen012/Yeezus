@@ -35,15 +35,17 @@ export class App extends Component {
 
    getImage = async () => {
      await fetchImage()
-      .then(image => this.setState({image: image}))
+      .then(image => this.setState({image: image.urls.regular}))
       .catch(error => error.message)
 
-      // console.log(this.state)
+      console.log(this.state)
    }
 
   render () {
     return (
-      <div className='App'>
+      <div className='App' style={{
+        backgroundImage:`url(${this.state.image})`,
+        }}>
         <h1>Yeezy Says</h1>
         <QuoteCard quote={this.state.quote} today={this.state.today} getQuote={this.getQuote} />
       </div>
