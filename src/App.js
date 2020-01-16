@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { fetchQuote, fetchImage, fetchWeather } from './ApiCalls'
-import QuoteCard from './QuoteCard'
+import { fetchQuote, fetchImage, fetchWeather } from './ApiCalls';
+import QuoteCard from './QuoteCard';
+import Weather from './Weather';
 import './App.css';
 
 console.log(process.env.REACT_APP_WEATHER_API_KEY)
@@ -12,14 +13,27 @@ export class App extends Component {
       quote: '',
       today: '',
       image: '',
-      weather: ''
+      weather: '',
+      temp: ''
     }
   }
 
   componentDidMount () {
+    this.getWeather()
     this.getQuote()
     // this.getImage()
-    this.getWeather()
+  }
+
+  getWeather = async () => {
+    await fetchWeather()
+      .then(weather => this.setState({weather: weather.currently}))
+      .catch(error => error.message)
+
+
+    const temp = Math.round(this.state.weather.temperature)
+    this.setState({temp: temp})
+      // console.log(temp)    
+      console.log(this.state)
   }
 
   getQuote = async () => {
@@ -43,20 +57,13 @@ export class App extends Component {
   //     .catch(error => error.message)
   //  }
 
-  getWeather = async () => {
-    await fetchWeather()
-      .then(weather => this.setState({weather: weather}))
-      .catch(error => error.message)
-
-      console.log(this.state)
-  }
 
   render () {
     return (
       <div className='App' style={{
         backgroundImage:`url(${this.state.image})`,
         }}>
-        <h1>Yeezy Says</h1>
+        <Weather temp={this.state.temp} weather={this.state.weather}/>
         <QuoteCard quote={this.state.quote} today={this.state.today} getQuote={this.getQuote} />
       </div>
     )

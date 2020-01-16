@@ -4,7 +4,6 @@ import './QuoteCard.css';
 
 export class QuoteCard extends Component {
 
-
   newQuote = async (e) => {
     e.preventDefault()
     this.props.getQuote()
