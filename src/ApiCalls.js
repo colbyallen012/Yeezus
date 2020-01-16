@@ -12,3 +12,10 @@ export const fetchImage = () => {
     .then(res => res)
     .catch(error => error.message)
 }
+
+export const fetchWeather = () => {
+  return fetch(`https://api.darksky.net/forecast/${process.env.REACT_APP_WEATHER_API_KEY}/39.7392, 104.9903`)
+    .then(res => res.json())
+    .then(res => res)
+    .catch(error => error.message)
+}
