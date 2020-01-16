@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { fetchQuote, fetchImage } from './ApiCalls'
+import { fetchQuote, fetchImage, fetchWeather } from './ApiCalls'
 import QuoteCard from './QuoteCard'
 import './App.css';
+
+console.log(process.env.REACT_APP_WEATHER_API_KEY)
 
 export class App extends Component {
   constructor() {
@@ -9,13 +11,15 @@ export class App extends Component {
     this.state = {
       quote: '',
       today: '',
-      image: ''
+      image: '',
+      weather: ''
     }
   }
 
   componentDidMount () {
     this.getQuote()
-    this.getImage()
+    // this.getImage()
+    this.getWeather()
   }
 
   getQuote = async () => {
@@ -33,13 +37,19 @@ export class App extends Component {
     this.setState({today: format})
    }
 
-   getImage = async () => {
-     await fetchImage()
-      .then(image => this.setState({image: image.urls.regular}))
+  //  getImage = async () => {
+  //    await fetchImage()
+  //     .then(image => this.setState({image: image.urls.regular}))
+  //     .catch(error => error.message)
+  //  }
+
+  getWeather = async () => {
+    await fetchWeather()
+      .then(weather => this.setState({weather: weather}))
       .catch(error => error.message)
 
       console.log(this.state)
-   }
+  }
 
   render () {
     return (
