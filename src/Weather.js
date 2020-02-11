@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
 import clearDay from './Utils/clear-day.png'
+import clearNight from './Utils/clear-night.png'
+import rain from './Utils/rain.png'
+import snow from './Utils/snow.png'
+import wind from './Utils/wind.png'
+import fog from './Utils/fog.png'
+import cloudy from './Utils/cloudy.png'
+import fog from './Utils/clear-night.png'
+import partlyCloudyDay from './Utils/partly-cloudy-day.png'
+import partlyCloudyNight from './Utils/partly-cloudy-night.png'
 
 export class Weather extends Component {
 
   renderIcon = () => {
-    return (
-      this.props.icon === 'clear-day' ? <img src={clearDay} alt='weather'/> : null
-    )
+    if(this.props.icon === 'clear-day') {
+      return <img src={clearDay} alt='weather'/>
+    } else if (this.props.icon === 'clear-night') {
+      return <img src={clearNight} alt='weather'/>
+    } else if (this.props.icon === 'rain') {
+      return <img src={rain} alt='weather'/>
+    } else if (this.props.icon === 'fog') {
+      return <img src={fog} alt='weather'/>
+    } else {
+      return null
+    }
   }
 
   render() {
@@ -21,3 +38,6 @@ export class Weather extends Component {
 }
 
 export default Weather;
+
+// this.props.icon === 'clear-day' ? <img src={clearDay} alt='weather'/> : null
+// this.props.icon === 'fog' ? <img src={fog} alt='weather'/> : null

@@ -32,7 +32,6 @@ export class App extends Component {
     const temp = Math.round(this.state.weather.temperature)
     this.setState({temp: temp})
     this.setState({icon: this.state.weather.icon})
-    console.log(this.state.weather)
   }
 
   getQuote = async () => {
