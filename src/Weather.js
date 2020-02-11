@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
+import clearDay from './Utils/clear-day.png'
 
-const Weather = ({weather, temp}) => {
-  return (
-    <div className='weather'>
-      <h3>{temp}</h3>
-      <p>{weather.summary}</p>
-    </div>
-  )
+export class Weather extends Component {
+
+  renderIcon = () => {
+    return (
+      this.props.icon === 'clear-day' ? <img src={clearDay} alt='weather'/> : null
+    )
+  }
+
+  render() {
+    return (
+      <div className='weather'>
+        <h3>{this.props.temp}</h3>
+        <p>{this.props.weather.summary}</p>
+        {this.renderIcon()}
+      </div>
+    )
+  }
 }
 
 export default Weather;

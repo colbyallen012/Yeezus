@@ -4,8 +4,6 @@ import QuoteCard from './QuoteCard';
 import Weather from './Weather';
 import './App.css';
 
-console.log(process.env.REACT_APP_WEATHER_API_KEY)
-
 export class App extends Component {
   constructor() {
     super()
@@ -14,7 +12,8 @@ export class App extends Component {
       today: '',
       image: '',
       weather: '',
-      temp: ''
+      temp: '',
+      icon: ''
     }
   }
 
@@ -32,8 +31,8 @@ export class App extends Component {
 
     const temp = Math.round(this.state.weather.temperature)
     this.setState({temp: temp})
-      // console.log(temp)    
-      console.log(this.state)
+    this.setState({icon: this.state.weather.icon})
+    console.log(this.state.weather)
   }
 
   getQuote = async () => {
@@ -63,7 +62,7 @@ export class App extends Component {
       <div className='App' style={{
         backgroundImage:`url(${this.state.image})`,
         }}>
-        <Weather temp={this.state.temp} weather={this.state.weather}/>
+        <Weather temp={this.state.temp} weather={this.state.weather} icon={this.state.icon}/>
         <QuoteCard quote={this.state.quote} today={this.state.today} getQuote={this.getQuote} />
       </div>
     )
