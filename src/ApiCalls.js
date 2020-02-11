@@ -9,7 +9,7 @@ export const fetchQuote = () => {
 }
 
 export const fetchImage = () => {
-  return fetch(`https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_API_KEY}`)
+  return fetch(`https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_API_KEY}&collections=573009&orientation=landscape`)
     .then(res => res.json())
     .then(res => res)
     .catch(error => error.message)
