@@ -121,5 +121,12 @@ describe('ApiCalls', () => {
       expect(result).toEqual(mockWeather)
     })
 
+    it('should return an error message if promise is rejected', async () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.reject('Error fetching weather')
+      });
+      await expect(window.fetch()).rejects.toEqual('Error fetching weather')
+    })
+
   })
 })
