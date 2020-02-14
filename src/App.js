@@ -39,8 +39,7 @@ export class App extends Component {
       .then(quote => this.setState({quote: quote.quote}))
       .catch(error => error.message)
 
-      this.today()
-
+    this.today()
   }
 
   today = () => {
@@ -52,8 +51,9 @@ export class App extends Component {
 
    getImage = async () => {
      await fetchImage()
-      .then(image => this.setState({image: image.urls.regular}))
+      .then(image => this.setState({image: image}))
       .catch(error => error.message)
+      console.log(this.state.image)
    }
 
 
