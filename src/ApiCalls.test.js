@@ -1,6 +1,9 @@
 import React from 'react';
 import { fetchQuote, fetchImage, fetchWeather } from './ApiCalls'
 
+const apiKey = process.env.REACT_APP_WEATHER_API_KEY
+
+
 describe('ApiCalls', () => {
 
   describe('fetchQuote', () => {
@@ -71,5 +74,47 @@ describe('ApiCalls', () => {
       });
       await expect(window.fetch()).rejects.toEqual('Error fetching image')
     })
+  })
+
+  describe('fetchWeather', () => {
+    let mockWeather;
+
+    beforeEach(() => {
+      mockWeather = { 
+        time: 1581694253,
+        summary: "Clear",
+        icon: "clear-day",
+        nearestStormDistance: 210,
+        nearestStormBearing: 326,
+        precipIntensity: 0,
+        precipProbability: 0,
+        temperature: 23.95,
+        apparentTemperature: 24.19,
+        dewPoint: 17.33,
+        humidity: 0.75,
+        pressure: 1015.2,
+        windSpeed: 1.98,
+        windGust: 4.35,
+        windBearing: 318,
+        cloudCover: 0.04,
+        uvIndex: 1,
+        visibility: 10,
+        ozone: 340.2
+      }
+
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockWeather)
+        })
+      })
+    })
+
+    it('should be called with the correct url', async () => {
+      const expected = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${apiKey}/39.7392, -104.9903`
+      fetchWeather();
+      expect(window.fetch).toHaveBeenCalledWith(expected)
+    })
+
   })
 })
