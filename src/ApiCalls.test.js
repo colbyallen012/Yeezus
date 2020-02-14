@@ -116,5 +116,10 @@ describe('ApiCalls', () => {
       expect(window.fetch).toHaveBeenCalledWith(expected)
     })
 
+    it('should return a parsed response', async () => {
+      const result = await fetchWeather()
+      expect(result).toEqual(mockWeather)
+    })
+
   })
 })
