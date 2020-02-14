@@ -29,5 +29,12 @@ describe('ApiCalls', () => {
       const result = await fetchQuote();
       expect(result).toEqual(mockQuote)
     })
+
+    it('should return an error message if promise is rejected', async () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.reject('Error fetching quote')
+      });
+      await expect(window.fetch()).rejects.toEqual('Error fetching quote')
+    })
   })
 })
