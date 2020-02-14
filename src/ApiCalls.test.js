@@ -24,5 +24,10 @@ describe('ApiCalls', () => {
       fetchQuote();
       expect(window.fetch).toHaveBeenCalledWith(expected)
     })
+
+    it('should return a parsed response', async () => {
+      const result = await fetchQuote();
+      expect(result).toEqual(mockQuote)
+    })
   })
 })
