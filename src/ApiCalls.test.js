@@ -64,5 +64,12 @@ describe('ApiCalls', () => {
       const result = await fetchImage()
       expect(result).toEqual(mockImage)
     })
+
+    it('should return an error message if promise is rejected', async () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.reject('Error fetching image')
+      });
+      await expect(window.fetch()).rejects.toEqual('Error fetching image')
+    })
   })
 })
