@@ -59,5 +59,10 @@ describe('ApiCalls', () => {
       fetchImage();
       expect(window.fetch).toHaveBeenCalledWith(expected)
     })
+
+    it('should return a parsed response', async () => {
+      const result = await fetchImage()
+      expect(result).toEqual(mockImage)
+    })
   })
 })
