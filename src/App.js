@@ -40,6 +40,7 @@ export class App extends Component {
       .catch(error => error.message)
 
       this.today()
+
   }
 
   today = () => {
