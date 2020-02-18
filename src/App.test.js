@@ -21,4 +21,11 @@ describe('App', () => {
     await instance.getQuote()
     expect(constants.fetchQuote).toHaveBeenCalledTimes(1)
   })
+  
+  it('should call fetchImage when getImage is called', async () => {
+    constants.fetchImage = jest.fn(() => Promise.resolve([]))
+    expect(constants.fetchImage).toHaveBeenCalledTimes(0)
+    await instance.getImage()
+    expect(constants.fetchImage).toHaveBeenCalledTimes(1)
+  })
 })
