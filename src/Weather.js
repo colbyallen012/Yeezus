@@ -41,7 +41,7 @@ export class Weather extends Component {
       <div className='weather'>
         <h3 className='summary'>Denver, CO</h3>
         <h3 className='temp'>{this.props.temp}°F</h3>
-        <h3 className='summary'>{this.props.weather.summary}</h3>
+        <h3 className='summary'>{this.props.weather}</h3>
         {this.renderIcon()}
       </div>
     )
