@@ -9,10 +9,20 @@ export class QuoteCard extends Component {
     this.props.getQuote()
   }
 
+  time = () => {
+   var currTime = new Date();
+
+   return currTime.toLocaleString('en-US', { 
+     hour: 'numeric', 
+     minute: 'numeric', 
+     hour12: true 
+    })
+  }
+
   render() {
     return (
       <div className='QuoteCard'>
-        <h2>{this.props.today}</h2> 
+        <h2>{this.time()}</h2>
         <p className='quote'>{this.props.quote}</p>
         <img className='pablo' src={pablo} alt='kanye-west'/>
         <form onSubmit={this.newQuote}>
