@@ -4,10 +4,10 @@ import './QuoteCard.css';
 
 export class QuoteCard extends Component {
 
-  newQuote = async (e) => {
-    e.preventDefault()
-    this.props.getQuote()
-  }
+  // newQuote = async (e) => {
+  //   e.preventDefault()
+  //   this.props.getQuote()
+  // }
 
   time = () => {
    var currTime = new Date();
@@ -25,9 +25,9 @@ export class QuoteCard extends Component {
         <h2>{this.time()}</h2>
         <p className='quote'>{this.props.quote}</p>
         <img className='pablo' src={pablo} alt='kanye-west'/>
-        <form onSubmit={this.newQuote}>
+        {/* <form onSubmit={this.newQuote}>
           <button className='quote-button'>New Quote</button>
-        </form>
+        </form> */}
       </div>
     )
   }

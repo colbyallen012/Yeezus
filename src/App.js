@@ -64,7 +64,7 @@ export class App extends Component {
         backgroundImage:`url(${this.state.image})`,
         }}>
         <Weather today={this.state.today} temp={this.state.temp} weather={this.state.weather.summary} icon={this.state.icon}/>
-        <QuoteCard quote={this.state.quote} getQuote={this.getQuote} />
+        <QuoteCard quote={this.state.quote} />
       </div>
     )
   }
