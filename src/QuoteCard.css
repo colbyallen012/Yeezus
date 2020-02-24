@@ -1,20 +1,28 @@
+.QuoteCard {
+  height: 100%;
+}
+
 .pablo {
-  height: 17%;
-  width: 17%;
+  height: 250px;
+  width: 250px;
+  position: relative;
+  bottom: -70px;
 }
 
 h2 {
-  font-size: 90px;
   color: white;
-  margin-bottom: 0px;
   font-family: 'Roboto', sans-serif;
+  font-size: 110px;
+  font-weight: 900;
+  margin-bottom: 50px;
 }
 
 p {
-  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 200;
   color: white;
   width: 85%;
-  margin: 50px auto;
-  font-family: 'Roboto', sans-serif;
+  margin: 30px auto;
 }
 

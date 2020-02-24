@@ -51,5 +51,3 @@ export class Weather extends Component {
 
 export default Weather;
 
-// this.props.icon === 'clear-day' ? <img src={clearDay} alt='weather'/> : null
-// this.props.icon === 'fog' ? <img src={fog} alt='weather'/> : null
