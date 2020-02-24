@@ -20,7 +20,7 @@ export class App extends Component {
   componentDidMount () {
     this.getWeather()
     this.getQuote()
-    // this.getImage()
+    this.getImage()
   }
 
   getWeather = async () => {
@@ -51,11 +51,11 @@ export class App extends Component {
     this.setState({today: format})
    }
 
-  //  getImage = async () => {
-  //    await fetchImage()
-  //     .then(image => this.setState({image: image.urls.regular}))
-  //     .catch(error => error.message)
-  //  }
+   getImage = async () => {
+     await fetchImage()
+      .then(image => this.setState({image: image.urls.regular}))
+      .catch(error => error.message)
+   }
 
 
   render () {
