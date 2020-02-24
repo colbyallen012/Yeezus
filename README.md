@@ -20,4 +20,5 @@ Continue working with restful api's and how to manipulate the data.
 ContinuedMore testing on React practice.
 
 ## Screenshots
-[screencapture-localhost-3000-2020-02-24-09_43_26.pdf](https://github.com/colbyallen012/my-cellar-fe/files/4245405/screencapture-localhost-3000-2020-02-24-09_43_26.pdf)
+![screencapture-localhost-3000-2020-02-24-09_54_16](https://user-images.githubusercontent.com/43159025/75167896-adb75d00-56eb-11ea-836d-e9e6763d8e0c.png)
+
