@@ -2,16 +2,36 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  font-family: 'Roboto', sans-serif;
 }
 
 .temp, .summary {
   font-size: 20px;
+  margin: 15px 10px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.location {
+  position: absolute;
+  font-size: 20px;
   margin: 15px;
   color: white;
+  font-family: 'Roboto', sans-serif;
+  right: 81px;
+  top: 30px;
 }
 
 .icon {
-  height: 50px;
-  width: 50px;
-  margin: 3px 10px 15px 0px;
+  height: 80px;
+  width: 80px;
+}
+
+.today {
+  color: white;
+  font-size: 20px;
+  left: 20px;
+  margin: 15px;
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
 }
