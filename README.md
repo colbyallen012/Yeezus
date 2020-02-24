@@ -3,7 +3,7 @@
 This personal project was built to mimic the momentum Google Chrome extension. Instead you receive a quote from the great philosopher Kanye West. Additionally it gives you a random background image and the current weather for Denver, CO. The quotes come from the [Kanye Rest Api](https://kanye.rest/), the random photo comes from [Unsplash Api](https://unsplash.com/developers), and the weather comes from the [Dark Sky Api](https://darksky.net/dev). 
 
 ## Live Demo
-[App]()
+
 
 ## Built With
 
